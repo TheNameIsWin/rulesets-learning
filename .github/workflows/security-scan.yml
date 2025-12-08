@@ -1,0 +1,16 @@
+name: security-scan
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run security scan (example)
+        run: |
+          echo "Running simple security check"
+          # replace with your scanner e.g. npm audit, trivy etc.
+          npm ci
+          npm audit --audit-level=moderate || true
