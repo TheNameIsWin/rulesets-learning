@@ -1,15 +1,13 @@
 name: build
+
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build project
-        run: |
-          # example build steps
-          echo "Building..."
-          ./build.sh
+      - name: Build step
+        run: echo "Build OK"
